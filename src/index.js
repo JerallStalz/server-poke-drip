@@ -18,7 +18,6 @@ app.use(
     res.send("sexo");
   })
 );
-app.use("/", require("./routes/products"));
 app.use("/", require("./routes/pokedex"));
 
 // Iniciando servidor

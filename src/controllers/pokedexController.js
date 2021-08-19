@@ -14,10 +14,15 @@ exports.getPokemons = async (req, res) => {
       const pokemon = {
         name: result.data.name,
         pokedex: numberToString(result.data.id),
+        stats: {
+          hp: result.data.stats[0].base_stat,
+          attack: result.data.stats[1].base_stat,
+          specialAttack: result.data.stats[3].base_stat,
+        },
         types: orderTypes(result.data.types),
         imageUrl: `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${numberToString(
           result.data.id
-        )}.png`
+        )}.png`,
       };
       pokemons.push(pokemon);
     }
